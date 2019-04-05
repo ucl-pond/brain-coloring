@@ -17,15 +17,15 @@ Tested on a Mac running OS X Yosemite (10.10.5) using an unsupported (old) versi
 
 0. Ensure that your Docker daemon is running and that you have installed `github:ucl-pond/brain_coloring` in `path/to/ucl-pond/brain-coloring`
 
-1. Change to a directory of your choice and install a vagrant VM. I have supplied the VagrantFile I used to install ubuntu:
+1. Change to a directory of your choice and install a vagrant VM. I have supplied the Vagrantfile (Singularity recipe) I used to install ubuntu:
 
-  ```path/to/ucl-pond/brain-coloring```
+  [Vagrantfile](Vagrantfile)
 
 2. Copy the `docker-to-singularity` makefile from this repo:
 
-  ```cp path/to/ucl-pond/brain-coloring/Makefile_brain-coloring_docker-to-singularity ./MakeFile```
+  ```cp [path/to/ucl-pond/brain-coloring/Makefile_brain-coloring_docker-to-singularity](Makefile_brain-coloring_docker-to-singularity) ./MakeFile```
 
-3. Remove any previous iterations
+3. Remove any previous output from `make all`
 
   ```rm image/mrazvan22_brain-coloring*.img```
 
@@ -33,11 +33,11 @@ Tested on a Mac running OS X Yosemite (10.10.5) using an unsupported (old) versi
 
   ```make all```
 
-You should get some output confirming that the docker container has been converted to a singularity image:
+You should get some output confirming that the docker container has been converted to a singularity image (located in the `./image` folder):
 
     Done. Image can be found at: /tmp/mrazvan22_brain-coloring-[datestamp-hash].img
 
-and then it should successfully execute Raz's script (although you may get an error if you haven't removed previous Singularity images), with the output ending something like this:
+and it should continue to successfully execute Raz's script (although you may get an error if you haven't removed previous Singularity images), with the output ending something like this:
 
     Saved: 'output/pcaCover/cortical_1.png'
 
