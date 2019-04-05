@@ -1,0 +1,33 @@
+SHELL:=/bin/bash
+
+none:
+
+all: docker-pull docker2singularity vagrant
+
+# pull the docker image
+docker-pull:
+	docker pull mrazvan22/brain-coloring
+
+# create the Docker container for conversion to Singularity
+#docker:
+#	docker build -t mrazvan22/brain-coloring .
+#docker:
+#	docker run -it mrazvan22/brain-coloring
+
+# make sure the Docker is working; should output "FastQC v0.11.5"
+docker-test:
+	docker run --rm -t mrazvan22/brain-coloring /bin/bash -c 'cd /home/brain-coloring; make'
+
+# setup the docker2singularity container and convert the demo Docker to Singularity
+docker2singularity:
+	docker run -v /var/run/docker.sock:/var/run/docker.sock -v ${PWD}/image:/output --privileged -t --rm singularityware/docker2singularity mrazvan22/brain-coloring
+
+# load the demo converted Singularity container
+# NOTE: macOS sed -i syntax
+# NOTE: make sure there's only 1 .img file in the image dir
+vagrant:
+	vagrant up && vagrant ssh -c "sudo singularity exec /vagrant/image/mrazvan22_brain-coloring-*.img /bin/bash -c 'cd /home/brain-coloring; make'"
+
+# remove the Singularity image
+clean:
+	rm -f image/mrazvan22_brain-coloring-*.img
