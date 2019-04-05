@@ -23,7 +23,7 @@ Tested on a Mac running OS X Yosemite (10.10.5) using an unsupported (old) versi
 
 2. Copy the `docker-to-singularity` makefile from this repo:
 
-  ```cp [path/to/ucl-pond/brain-coloring/Makefile_brain-coloring_docker-to-singularity](Makefile_brain-coloring_docker-to-singularity) ./MakeFile```
+    cp [path/to/ucl-pond/brain-coloring/Makefile_brain-coloring_docker-to-singularity](Makefile_brain-coloring_docker-to-singularity) ./MakeFile
 
 3. Remove any previous output from `make all`
 
