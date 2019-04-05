@@ -4,7 +4,8 @@ Author: Neil P. Oxtoby - n.oxtoby@ucl.ac.uk
 These instructions are for a Mac.
 
 Singularity doesn't have a Mac version (as of this writing), so the first step is to install a Vagrant VM:
-[sylabs installation guide](https://www.sylabs.io/guides/3.1/user-guide/installation.html?#mac)
+
+- [sylabs installation guide](https://www.sylabs.io/guides/3.1/user-guide/installation.html?#mac)
 
 Tested on a Mac running OS X Yosemite (10.10.5) using an unsupported (old) version of Docker because I hadn't yet updated to the latest Mac OS:
 
